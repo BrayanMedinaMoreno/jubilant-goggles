@@ -3,7 +3,7 @@ import numpy as np
 import face_recognition
 
 if __name__ == "__main__":
-
+    exitt=cv2.VideoWriter("sierra,india.avi",cv2.VideoWriter_fourcc(*"XVID"),20.0,(640,480))
     camera = cv2.VideoCapture(0)
     _, frame = camera.read()
 
@@ -45,11 +45,13 @@ if __name__ == "__main__":
             cy = new_cy
             
         cv2.imshow ( "si" , frame )
+        exitt.write(frame)
         if cv2.waitKey(1) & 0xFF == ord("s"):
             break
 
 
 camera.release()
+exitt.release()
 cv2.destroyAllWindows()
 
             
